@@ -3,10 +3,12 @@ AWS CLI Role
 
 This role will install the linux version of the aws_cli.   This will attempt to pull the latest version and install it.  It also is idempotence so it checks if the aws cli is already installed and will not change anything.   If you want this to replace an existing you'll need to manually remove the old version.  To do this delete
 
+```bash
 sudo rm -rf /usr/local/aws-cli
 sudo rm /usr/local/bin/aws
 sudo rm /usr/local/bin/aws_completer
 sudo rm /bin/aws_completer
+```
 
 Requirements
 ------------
@@ -46,7 +48,10 @@ ansible-galaxy install spextreme.aws-cli-role
 
 Using git:
 
+```bash
 $ git clone git@github.com:devkingdom/aws-cli-role.git
+```
+
 
 License
 -------
@@ -57,5 +62,5 @@ Author Information
 ------------------
 
 Created by Stephen Paulin.   
-https://spextreme.gitlab.io/site/
+(spextreme.gitlab.io/site/)[https://spextreme.gitlab.io/site/]
 
