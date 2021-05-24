@@ -29,9 +29,12 @@ Example Playbook
 
 Using ansible-galaxy:
 
+```bash
 ansible-galaxy install spextreme.aws-cli-role
+```
 
 ---
+```bash
 - name install aws_cli
   hosts: all
   connection: local
@@ -39,6 +42,7 @@ ansible-galaxy install spextreme.aws-cli-role
   gather_facts: no
   roles:
     - role: spextreme.aws-cli-role
+```
 
 Using git:
 
