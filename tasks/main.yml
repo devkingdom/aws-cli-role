@@ -1,0 +1,37 @@
+---
+
+- name: Check if installed
+  stat:
+    path: /usr/local/bin/aws
+  register: aws_exists
+
+- name: Download aws cli
+  get_url:
+    url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+    dest: /tmp/awscli.zip
+    mode: '0777'
+  when: aws_exists.stat.exists == false
+
+- name: Unpack aws cli archive
+  unarchive:
+    src: /tmp/awscli.zip
+    dest: /tmp/
+    mode: '0755'
+    remote_src: no
+  when: aws_exists.stat.exists == false
+  
+- name: Install aws cli
+  shell: "/tmp/aws/install"
+  args:
+    creates: /usr/local/bin/aws
+  when: aws_exists.stat.exists == false
+  
+- name: Create a symbolic link
+  file:
+    src: /usr/local/bin/aws
+    dest: /usr/bin/aws
+    owner: root
+    group: root
+    state: link
+  when: aws_exists.stat.exists == false
+
