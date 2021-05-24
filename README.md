@@ -62,5 +62,5 @@ Author Information
 ------------------
 
 Created by Stephen Paulin.   
-https://spextreme.gitlab.io/site/
+(spextreme.gitlab.io/site/)[https://spextreme.gitlab.io/site/]
 

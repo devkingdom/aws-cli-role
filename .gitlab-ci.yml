@@ -1,9 +1,35 @@
 ---
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 default:
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+setup:
+=======
+.pre:
+>>>>>>> 8410fd1 (Still trying)
+=======
+stages:
+  - setup
+  - test
+  #- deploy
+
+setup-project:
+>>>>>>> 755210e (Still trying)
+  stage: setup
+>>>>>>> a0e3e89 (Still trying)
+=======
+default:
+>>>>>>> fc5eae6 (Still trying)
   image: fedora:34
 
   before_script:
+<<<<<<< HEAD
     - dnf install -y ansible tar unzip
+<<<<<<< HEAD
     - ansible --version
 
   script:
@@ -14,6 +40,36 @@ default:
       ansible-playbook -i tests/inventory tests/test.yml --connection=local \
       | grep -q 'changed=0.*failed=0'  \
       && (echo 'Idempotence test: pass' && exit 0) \
+=======
+  image: ansible/ansible:fedora27py3
+=======
+  image: fedora:34
+>>>>>>> 760d3cb (Updated to use fedora:34 and install ansible for testing)
+
+  before_script:
+    - dnf install -y ansible
+=======
+>>>>>>> 72b4328 (Still trying)
+=======
+    - dnf install -y ansible unzip
+>>>>>>> cf3abd9 (Removed tar as it shouldn't be needed.)
+    - ansible --version
+
+  script:
+    - export ANSIBLE_ROLES_PATH=../
+    - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+    - ansible-playbook -i tests/inventory tests/test.yml --connection=local 
+    - |
+<<<<<<< HEAD
+      ansible-playbook -i tests/inventory tests/test.yml --connection=local
+      | grep -q 'changed=0.*failed=0'
+      && (echo 'Idempotence test: pass' && exit 0)
+>>>>>>> cb8bf1a (Setting up CI)
+=======
+      ansible-playbook -i tests/inventory tests/test.yml --connection=local \
+      | grep -q 'changed=0.*failed=0'  \
+      && (echo 'Idempotence test: pass' && exit 0) \
+>>>>>>> 488b0f2 (Still trying)
       || (echo 'Idempotence test: fail' && exit 1)
 
 #notifications:
