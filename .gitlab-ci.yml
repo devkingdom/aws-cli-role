@@ -1,8 +1,9 @@
 ---
 default:
-  image: ansible/ansible:fedora27py3
+  image: fedora:34
 
   before_script:
+    - dnf install -y ansible
     - ansible --version
     - printf '[defaults]\nroles_path=../' >ansible.cfg
 
