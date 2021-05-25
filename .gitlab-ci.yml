@@ -10,7 +10,7 @@ default:
   script:
     - cat ansible.cfg
     - pwd
-    - find .
+    - ls *
     - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
     - ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo
     - |
