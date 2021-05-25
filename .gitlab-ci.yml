@@ -4,13 +4,12 @@ default:
 
   before_script:
     - dnf install -y ansible
-    - printf '[defaults]\nroles_path=../' > ~/ansible.cfg
     - ansible --version
 
   script:
-    - cat ~/ansible.cfg
+    - cat /etc/ansible/ansible.cfg
+    - printf '[defaults]\nroles_path=../' > /etc/ansible/ansible.cfg
     - pwd
-    - ls
     - ansible-playbook -vvv tests/test.yml -i tests/inventory --syntax-check
     - ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo
     - |
