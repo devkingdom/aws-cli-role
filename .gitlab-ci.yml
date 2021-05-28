@@ -1,19 +1,11 @@
 ---
-stages:
-  - setup
-  - test
-  #- deploy
-
-setup-project:
-  stage: setup
+default:
   image: fedora:34
 
-  script:
+  before_script:
     - dnf install -y ansible tar unzip
     - ansible --version
 
-test:
-  stage: test
   script:
     - export ANSIBLE_ROLES_PATH=../
     - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
@@ -24,7 +16,5 @@ test:
       && (echo 'Idempotence test: pass' && exit 0) \
       || (echo 'Idempotence test: fail' && exit 1)
 
-
-#deploy: 
-  #notifications:
-    #webhooks: https://galaxy.ansible.com/api/v1/notifications/
+#notifications:
+  #webhooks: https://galaxy.ansible.com/api/v1/notifications/
