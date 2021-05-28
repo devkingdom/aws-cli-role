@@ -3,7 +3,7 @@ default:
   image: fedora:34
 
   before_script:
-    - dnf install -y ansible
+    - dnf install -y ansible tar unzip
     - ansible --version
 
   script:
