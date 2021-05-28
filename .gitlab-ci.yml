@@ -1,5 +1,10 @@
 ---
-.pre:
+stages:
+  - setup
+  - test
+  #- deploy
+
+setup-project:
   stage: setup
   image: fedora:34
 
@@ -9,7 +14,6 @@
 
 test:
   stage: test
-  needs: [setup]
   script:
     - export ANSIBLE_ROLES_PATH=../
     - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
