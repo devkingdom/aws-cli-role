@@ -4,13 +4,11 @@ default:
 
   before_script:
     - dnf install -y ansible
-    - useradd -u 5000 -n -m spextreme
-    - su - spextreme
     - printf '[defaults]\nroles_path=../' > ~/.ansible.cfg
     - ansible --version
 
   script:
-    - ansible-playbook --become-user root tests/test.yml -i tests/inventory --syntax-check
+    - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
     - ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo
     - |
       ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo
