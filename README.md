@@ -32,7 +32,7 @@ Example Playbook
 Using ansible-galaxy:
 
 ```bash
-ansible-galaxy install spextreme.aws-cli-role
+ansible-galaxy install devkingdom.aws-cli-role
 ```
 
 ---
@@ -43,7 +43,7 @@ ansible-galaxy install spextreme.aws-cli-role
   become: yes
   gather_facts: no
   roles:
-    - role: spextreme.aws-cli-role
+    - role: devkingdom.aws-cli-role
 ```
 
 Using git:
