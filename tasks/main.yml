@@ -17,7 +17,7 @@
     src: /tmp/awscli.zip
     dest: /tmp/
     mode: '0755'
-    remote_src: no
+    remote_src: yes
   when: aws_exists.stat.exists == false
   
 - name: Install aws cli

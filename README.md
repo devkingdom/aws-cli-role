@@ -7,7 +7,7 @@ This role will install the linux version of the aws_cli.   This will attempt to 
 sudo rm -rf /usr/local/aws-cli
 sudo rm /usr/local/bin/aws
 sudo rm /usr/local/bin/aws_completer
-sudo rm /bin/aws_completer
+sudo rm /bin/aws
 ```
 
 Requirements
