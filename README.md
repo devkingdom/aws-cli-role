@@ -62,5 +62,5 @@ Author Information
 ------------------
 
 Created by Stephen Paulin.   
-(medium@spextreme)[https://medium.com/@spextreme]
+[medium@spextreme](https://medium.com/@spextreme)
 
